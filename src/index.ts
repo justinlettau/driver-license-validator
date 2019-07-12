@@ -1,4 +1,4 @@
-import { ValidationMatch } from './interfaces';
+import { CountryFormats, ValidationMatch } from './interfaces';
 import { US_DL } from './regex/us-dl';
 
 /**
@@ -35,3 +35,9 @@ export function validate(dl: string, states?: string | string[]) {
 
   return results.length ? results : null;
 }
+
+export function validateIgnoreCase(dl: string, states?: string | string[]) {
+  validate(dl.toUpperCase(), states);
+}
+
+export const dlStates: CountryFormats = US_DL;

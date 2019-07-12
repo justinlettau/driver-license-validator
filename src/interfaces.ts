@@ -11,6 +11,7 @@ export interface CountryFormats {
 export interface DriverLicenseFormat {
   regex: RegExp;
   description: string;
+  translationKey: string;
 }
 
 /**
