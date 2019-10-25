@@ -1,4 +1,5 @@
-import { ValidateOptions, ValidationMatch } from './interfaces';
+import { CountryFormats, ValidateOptions, ValidationMatch } from './interfaces';
+import { CA_DL } from './regex/ca-dl';
 import { US_DL } from './regex/us-dl';
 
 /**
@@ -9,16 +10,27 @@ import { US_DL } from './regex/us-dl';
  */
 export function validate(dl: string, options: ValidateOptions = {}) {
   const results: ValidationMatch[] = [];
+  let formats: CountryFormats;
   let states: string[];
 
+  switch (options.country) {
+    case 'CA':
+      formats = CA_DL;
+      break;
+    case 'US':
+    default:
+      formats = US_DL;
+      break;
+  }
+
   if (!options.states) {
-    states = Object.keys(US_DL);
+    states = Object.keys(formats);
   } else if (!Array.isArray(options.states)) {
     states = [options.states];
   }
 
   states.forEach(state => {
-    const info = US_DL[state];
+    const info = formats[state];
 
     if (!info) {
       throw new Error(`Could not find state "${state}"!`);

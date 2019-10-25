@@ -22,9 +22,15 @@ export interface ValidationMatch {
 }
 
 /**
+ * Supported country codes.
+ */
+export type CountyCode = 'US' | 'CA';
+
+/**
  * Validate options.
  */
 export interface ValidateOptions {
+  country?: CountyCode;
   states?: string | string[];
   ignoreCase?: boolean;
 }

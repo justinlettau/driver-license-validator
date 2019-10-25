@@ -46,16 +46,22 @@ validate('A1234567', { states: ['NY', 'OH'] });
 //   { description: '1 letter followed by 4-8 numbers', state: 'OH' }
 // ]
 
+validate('A123456789', { country: 'CA' });
+// => [
+//   { description: '1 letter followed by 9 numbers', state: 'NL' }
+// ]
+
 validate('invalid_dl');
 // => null
 ```
 
 Options:
 
-| Option       | Type                   | Description                    |
-| ------------ | ---------------------- | ------------------------------ |
-| `states`     | `string` or `string[]` | State(s) to filter results to. |
-| `ignoreCase` | `boolean`              | True to ignore case.           |
+| Option       | Type                   | Description                    | Default |
+| ------------ | ---------------------- | ------------------------------ | ------- |
+| `country`    | `string`               | Country to use.                | `US`    |
+| `states`     | `string` or `string[]` | State(s) to filter results to. | n/a     |
+| `ignoreCase` | `boolean`              | True to ignore case.           | `false` |
 
 # Development
 
