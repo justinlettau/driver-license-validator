@@ -18,8 +18,8 @@ export const US_DL: CountryFormats = {
   ],
   AZ: [
     {
-      regex: /^[A-Z]{1}[0-9]{1,8}$/,
-      description: '1 letter followed by 1-8 numbers'
+      regex: /^[A-Z]{1}[0-9]{8,9}$/,
+      description: '1 letter followed by 8-9 numbers'
     },
     {
       regex: /^[A-Z]{2}[0-9]{2,5}$/,
@@ -60,7 +60,7 @@ export const US_DL: CountryFormats = {
     {
       regex: /^[0-9]{9}$/,
       description: '9 numbers'
-    },
+    }
   ],
   DE: [
     {
@@ -426,8 +426,8 @@ export const US_DL: CountryFormats = {
   ],
   VA: [
     {
-      regex: /^[A-Z]{1}[0-9]{9,11}$/,
-      description: '1 letter followed by 9-11 numbers'
+      regex: /^[A-Z]{1}[0-9]{8,11}$/,
+      description: '1 letter followed by 8-11 numbers'
     },
     {
       regex: /^[0-9]{9}$/,
