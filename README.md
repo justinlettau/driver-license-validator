@@ -4,20 +4,24 @@
 [![codecov](https://codecov.io/gh/justinlettau/driver-license-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/justinlettau/driver-license-validator)
 
 # Driver License Validator
+
 Validate driver license numbers.
 Formats based on [https://ntsi.com/drivers-license-format/](https://ntsi.com/drivers-license-format/).
 
 # Table of Contents
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Development](#development)
 
 # Installation
+
 ```bash
 npm install driver-license-validator --save
 ```
 
 # Usage
+
 ```js
 import { validate } from 'driver-license-validator';
 
@@ -31,12 +35,12 @@ validate('A1234567');
 //   { description: '1 letter followed by 4-8 numbers', state: 'OH' }
 // ]
 
-validate('A1234567', 'NY');
+validate('A1234567', { states: 'NY' });
 // => [
 //   { description: '1 letter followed by 7 numbers', state: 'NY' }
 // ]
 
-validate('A1234567', ['NY', 'OH']);
+validate('A1234567', { states: ['NY', 'OH'] });
 // => [
 //   { description: '1 letter followed by 7 numbers', state: 'NY' },
 //   { description: '1 letter followed by 4-8 numbers', state: 'OH' }
@@ -46,7 +50,15 @@ validate('invalid_dl');
 // => null
 ```
 
+Options:
+
+| Option       | Type                   | Description                    |
+| ------------ | ---------------------- | ------------------------------ |
+| `states`     | `string` or `string[]` | State(s) to filter results to. |
+| `ignoreCase` | `boolean`              | True to ignore case.           |
+
 # Development
+
 ```
 npm install
 npm run build

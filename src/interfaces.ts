@@ -20,3 +20,11 @@ export interface ValidationMatch {
   state: string;
   description: string;
 }
+
+/**
+ * Validate options.
+ */
+export interface ValidateOptions {
+  states?: string | string[];
+  ignoreCase?: boolean;
+}

@@ -34,7 +34,7 @@
     "release": "standard-version",
     "test": "nyc jasmine JASMINE_CONFIG_PATH=jasmine.json",
     "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
-    "format:all": "prettier --write **/*.ts"
+    "format:all": "prettier --write **/*.{ts,md}"
   },
   "husky": {
     "hooks": {

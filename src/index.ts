@@ -1,19 +1,20 @@
-import { ValidationMatch } from './interfaces';
+import { ValidateOptions, ValidationMatch } from './interfaces';
 import { US_DL } from './regex/us-dl';
 
 /**
  * Validate a driver license number.
  *
  * @param dl Driver license number.
- * @param states Optional state(s) to validate.
+ * @param options Optional configuration options.
  */
-export function validate(dl: string, states?: string | string[]) {
+export function validate(dl: string, options: ValidateOptions = {}) {
   const results: ValidationMatch[] = [];
+  let states: string[];
 
-  if (!states) {
+  if (!options.states) {
     states = Object.keys(US_DL);
-  } else if (!Array.isArray(states)) {
-    states = [states];
+  } else if (!Array.isArray(options.states)) {
+    states = [options.states];
   }
 
   states.forEach(state => {
@@ -24,9 +25,12 @@ export function validate(dl: string, states?: string | string[]) {
     }
 
     info.forEach(item => {
-      if (item.regex.test(dl)) {
+      const { regex, description } = item;
+      const pattern = options.ignoreCase ? new RegExp(regex, 'i') : regex;
+
+      if (pattern.test(dl)) {
         results.push({
-          description: item.description,
+          description,
           state
         });
       }
