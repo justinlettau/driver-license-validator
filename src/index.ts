@@ -67,10 +67,15 @@ export function requirementsByState(states: string | string[], options: Validate
   }
 
   const formats = countryFormats(options.country);
+
   states.forEach(function(state: string) {
-    if (formats[state]) {
-      requirements[state] = formats[state];
+    const validationInfo = formats[state];
+
+    if (!validationInfo) {
+      throw new Error(`Could not find state "${state}"!`);
     }
+
+    requirements[state] = validationInfo;
   });
   return requirements;
 }

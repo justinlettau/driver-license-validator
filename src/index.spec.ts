@@ -25,6 +25,12 @@ describe('validate method', () => {
     const result = validate('ab1234', { ignoreCase: true });
     expect(result.length).toEqual(3);
   });
+
+  it('throw when it cant find the state', () => {
+    expect(function() {
+      validate('abc1234', { states: 'NA' });
+    }).toThrow();
+  });
 });
 
 describe('requirementsByState method', () => {
@@ -69,6 +75,12 @@ describe('requirementsByState method', () => {
       ]
     });
   });
+
+  it('throw when it cant find the state', () => {
+    expect(function() {
+      requirementsByState(['NA']);
+    }).toThrow();
+  });
 });
 
 describe('validateForState method', () => {
@@ -80,5 +92,11 @@ describe('validateForState method', () => {
   it('returns true for a valid dl for a specific state', () => {
     const result = validateForState('A1234567', 'NY');
     expect(result).toEqual(true);
+  });
+
+  it('throw when it cant find the state', () => {
+    expect(function() {
+      validateForState('abc1234', 'NA');
+    }).toThrow();
   });
 });
