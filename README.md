@@ -22,6 +22,14 @@ npm install driver-license-validator --save
 
 # Usage
 
+This package exports three functions
+
+1. validate
+2. validateForState
+3. requirementsByState
+
+## validate
+
 ```js
 import { validate } from 'driver-license-validator';
 
@@ -53,6 +61,64 @@ validate('A123456789', { country: 'CA' });
 
 validate('invalid_dl');
 // => null
+```
+
+## validateForState
+
+```js
+import { validateForState } from 'driver-license-validator';
+
+validateForState('A1234567', 'CO');
+// => false
+
+validateForState('A1234567', 'NY');
+// => true
+
+validateForState('invalid_dl');
+// => false
+```
+
+## requirementsByState
+
+```js
+import { requirementsByState } from 'driver-license-validator';
+
+requirementsByState('CO');
+// => {
+//  CO: [
+//    { regex: /^[0-9]{9}$/, description: '9 numbers' },
+//    {
+//      regex: /^[A-Z]{1}[0-9]{3,6}$/,
+//      description: '1 letter followed by 3-6 numbers'
+//    },
+//    {
+//      regex: /^[A-Z]{2}[0-9]{2,5}$/,
+//      description: '2 letters followed by 2-5 numbers'
+//    }
+//  ]
+//}
+
+requirementsByState(['WA', 'GA', 'CO']);
+// => {
+//  WA: [
+//    {
+//      regex: /^(?=.{12}$)[A-Z]{1,7}[A-Z0-9\\*]{4,11}$/,
+//      description: '1-7 letters followed by any combination of letters, numbers, or "*" for a total of 12 characters'
+//    }
+//  ],
+//  GA: [ { regex: /^[0-9]{7,9}$/, description: '7-9 numbers' } ],
+//  CO: [
+//    { regex: /^[0-9]{9}$/, description: '9 numbers' },
+//    {
+//      regex: /^[A-Z]{1}[0-9]{3,6}$/,
+//      description: '1 letter followed by 3-6 numbers'
+//    },
+//    {
+//      regex: /^[A-Z]{2}[0-9]{2,5}$/,
+//      description: '2 letters followed by 2-5 numbers'
+//    }
+//  ]
+//}
 ```
 
 Options:
