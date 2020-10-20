@@ -1,4 +1,4 @@
-import { CountryFormats, ValidateOptions, ValidationMatch, DriverLicenseFormat } from './interfaces';
+import { CountryFormats, DriverLicenseFormat, ValidateOptions, ValidationMatch } from './interfaces';
 import { CA_DL } from './regex/ca-dl';
 import { US_DL } from './regex/us-dl';
 
@@ -59,7 +59,7 @@ export function validateForState(dl: string, state: string, options: ValidateOpt
 }
 
 export function requirementsByState(states: string | string[], options: ValidateOptions = {}) {
-  let requirements: { [key: string]: DriverLicenseFormat[] } = {};
+  const requirements: { [key: string]: DriverLicenseFormat[] } = {};
   if (Array.isArray(states)) {
     states = states;
   } else {
@@ -68,7 +68,7 @@ export function requirementsByState(states: string | string[], options: Validate
 
   const formats = countryFormats(options.country);
 
-  states.forEach(function(state: string) {
+  states.forEach((state: string) => {
     const validationInfo = formats[state];
 
     if (!validationInfo) {
