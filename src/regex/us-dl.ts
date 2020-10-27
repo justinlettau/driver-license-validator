@@ -22,10 +22,6 @@ export const US_DL: CountryFormats = {
       description: '1 letter followed by 8-9 numbers'
     },
     {
-      regex: /^[A-Z]{2}[0-9]{2,5}$/,
-      description: '2 letters followed by 2-5 numbers'
-    },
-    {
       regex: /^[0-9]{9}$/,
       description: '9 numbers'
     }
