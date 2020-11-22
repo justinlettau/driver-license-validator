@@ -29,21 +29,21 @@ export function validate(dl: string, options: ValidateOptions = {}) {
     states = [options.states];
   }
 
-  states.forEach(state => {
+  states.forEach((state) => {
     const info = formats[state];
 
     if (!info) {
       throw new Error(`Could not find state "${state}"!`);
     }
 
-    info.forEach(item => {
+    info.forEach((item) => {
       const { regex, description } = item;
       const pattern = options.ignoreCase ? new RegExp(regex, 'i') : regex;
 
       if (pattern.test(dl)) {
         results.push({
           description,
-          state
+          state,
         });
       }
     });
