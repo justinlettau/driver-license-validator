@@ -3,12 +3,12 @@ import { CA_DL } from './regex/ca-dl';
 import { US_DL } from './regex/us-dl';
 
 /**
- * Validate a driver license number.
+ * Get all matching formats for a driver license number.
  *
  * @param dl Driver license number.
  * @param options Optional configuration options.
  */
-export function validate(dl: string, options: ValidateOptions = {}) {
+export function getMatches(dl: string, options: ValidateOptions = {}) {
   const results: ValidationMatch[] = [];
   let formats: CountryFormats;
   let states: string[];
