@@ -1,14 +1,14 @@
 import { isValid, getMatches } from './index';
 
 describe('isValid method', () => {
-  it('should return true when matches found', () => {
+  it('should return false when no matches found', () => {
     const result = isValid('invalid_dl');
-    expect(result).toBe(true);
+    expect(result).toBe(false);
   });
 
-  it('should return false when no matches found', () => {
+  it('should return true when matches found', () => {
     const result = isValid('A1234567');
-    expect(result).toBe(false);
+    expect(result).toBe(true);
   });
 });
 
