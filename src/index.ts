@@ -3,6 +3,18 @@ import { CA_DL } from './regex/ca-dl';
 import { US_DL } from './regex/us-dl';
 
 /**
+ * Check if a driver license number matches any format.
+ *
+ * @param dl Driver license number.
+ * @param options Optional configuration options.
+ */
+export function isValid(dl: string, options: ValidateOptions = {}) {
+  const result = getMatches(dl, options);
+
+  return result?.length > 0;
+}
+
+/**
  * Get all matching formats for a driver license number.
  *
  * @param dl Driver license number.
