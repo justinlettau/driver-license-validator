@@ -1,5 +1,5 @@
 [![NPM Version](https://badge.fury.io/js/js-rules-engine.svg)](https://badge.fury.io/js/driver-license-validator)
-[![Build Status](https://travis-ci.org/justinlettau/driver-license-validator.svg?branch=master)](https://travis-ci.org/justinlettau/driver-license-validator)
+[![CI](https://github.com/justinlettau/driver-license-validator/workflows/CI/badge.svg)](https://github.com/justinlettau/driver-license-validator/actions)
 [![Dev Dependency Status](https://david-dm.org/justinlettau/driver-license-validator/dev-status.svg)](https://david-dm.org/justinlettau/js-rules-engine?type=dev)
 [![codecov](https://codecov.io/gh/justinlettau/driver-license-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/justinlettau/driver-license-validator)
 
