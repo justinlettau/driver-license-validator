@@ -23,9 +23,15 @@ npm install driver-license-validator --save
 # Usage
 
 ```js
-import { validate } from 'driver-license-validator';
+import { getMatches, isValid } from 'driver-license-validator';
 
-validate('A1234567');
+isValid('A1234567');
+// => true
+
+isValid('invalid_dl');
+// => false
+
+getMatches('A1234567');
 // => [
 //   { description: '1 letter followed by 1-8 numbers', state: 'AZ' },
 //   { description: '1 letter followed by 7 numbers', state: 'CA' },
@@ -35,23 +41,23 @@ validate('A1234567');
 //   { description: '1 letter followed by 4-8 numbers', state: 'OH' }
 // ]
 
-validate('A1234567', { states: 'NY' });
+getMatches('A1234567', { states: 'NY' });
 // => [
 //   { description: '1 letter followed by 7 numbers', state: 'NY' }
 // ]
 
-validate('A1234567', { states: ['NY', 'OH'] });
+getMatches('A1234567', { states: ['NY', 'OH'] });
 // => [
 //   { description: '1 letter followed by 7 numbers', state: 'NY' },
 //   { description: '1 letter followed by 4-8 numbers', state: 'OH' }
 // ]
 
-validate('A123456789', { country: 'CA' });
+getMatches('A123456789', { country: 'CA' });
 // => [
 //   { description: '1 letter followed by 9 numbers', state: 'NL' }
 // ]
 
-validate('invalid_dl');
+getMatches('invalid_dl');
 // => null
 ```
 
