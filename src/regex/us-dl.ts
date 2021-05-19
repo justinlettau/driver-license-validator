@@ -6,8 +6,8 @@ import { CountryFormats } from '../interfaces';
 export const US_DL: CountryFormats = {
   AL: [
     {
-      regex: /^[0-9]{1,7}$/,
-      description: '1-7 numbers',
+      regex: /^[0-9]{1,8}$/,
+      description: '1-8 numbers',
     },
   ],
   AK: [
