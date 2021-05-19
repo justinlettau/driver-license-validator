@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/justinlettau/driver-license-validator/compare/v2.0.1...v2.0.2) (2021-05-19)
+
+
+### Bug Fixes
+
+* update us regex ([93101b7](https://github.com/justinlettau/driver-license-validator/commit/93101b70281e13e2d2df4473a0cf55f4b5609e83)), closes [#25](https://github.com/justinlettau/driver-license-validator/issues/25)
+
 ### [2.0.1](https://github.com/justinlettau/driver-license-validator/compare/v2.0.0...v2.0.1) (2021-03-23)
 
 ## [2.0.0](https://github.com/justinlettau/driver-license-validator/compare/v1.0.0...v2.0.0) (2020-11-23)
