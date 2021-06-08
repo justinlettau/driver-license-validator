@@ -26,26 +26,22 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm ci
-      - name: Run Tests
-          run: npm run test
-          env:
-            CI: true
+      - name: Compile Typescript
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run build
       - name: Run Tests
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn test
+        run: npm run test
       - name: Upload report to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Compile Typescript
-          env:
-            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          run: npm run build
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
