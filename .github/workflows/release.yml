@@ -26,12 +26,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm ci
-      - name: Code Quality
-          env:
-            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          run: npm run lint
       - name: Run Tests
           run: npm run test
           env:
