@@ -1,5 +1,5 @@
 {
-    "branches": [ "main", {"name": "staging", "prerelease": true }, { "name": "+(ch-*[0-9]*)", "prerelease": true } ],
+    "branches": [ "master", {"name": "staging", "prerelease": true }, { "name": "+(ch-*[0-9]*)", "prerelease": true } ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
