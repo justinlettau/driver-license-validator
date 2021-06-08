@@ -1,0 +1,19 @@
+{
+    "branches": [ "main", {"name": "staging", "prerelease": true }, { "name": "+(ch-*[0-9]*)", "prerelease": true } ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+    [
+      "@semantic-release/npm", {
+        "npmPublish": true,
+        "tarballDir": 'dist',
+      }
+    ],
+    ["@semantic-release/git", {
+      "assets": ["package.json", "package-lock.json", "CHANGELOG.md"],
+      "message": "Release <%= nextRelease.version %> - <%= new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %> [skip ci]\\n\\n<%= nextRelease.notes %>"
+    }],
+    "@semantic-release/github"
+    ]
+}

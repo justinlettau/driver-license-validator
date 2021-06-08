@@ -1,0 +1,36 @@
+# This workflow will triage pull requests and apply a label based on the
+# paths that are modified in the pull request.
+#
+# To use this workflow, you will need to set up a .github/labeler.yml
+# file with configuration.  For more information, see:
+# https://github.com/actions/labeler
+
+name: Annotate Pull Request
+on: [pull_request]
+jobs:
+  launchDarklyCodeReferences:
+    name: Scan for LaunchDarkly References
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 11 # This value must be set if the lookback configuration option is not disabled for find-code-references. Read more: https://github.com/launchdarkly/ld-find-code-refs#searching-for-unused-flags-extinctions
+      - name: LaunchDarkly Code References
+        uses: launchdarkly/find-code-references@v7
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          accessToken: ${{ secrets.LD_ACCESS_TOKEN }}
+          projKey: production
+          ignoreServiceErrors: true
+  updatePrWithClubhouseDetails:
+    name: Update PR With Story Details
+    runs-on: ubuntu-latest
+    steps:
+      - name: clubhouse-pr-updater
+        uses: blakeworsley/gh-actions-clubhouse-pr-updater@v0.0.5
+        with:
+          descriptionHeader: '### Summary'
+          urlHeader: '### References'
+          delimiter: '___'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLUBHOUSE_TOKEN: ${{ secrets.CLUBHOUSE_TOKEN }}
