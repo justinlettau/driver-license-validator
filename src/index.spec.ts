@@ -530,13 +530,13 @@ describe('getMatches method', () => {
     });
   }
 
-    it('invalid state should throw', () => {
-        expect( () => getMatches( 'a1234567', { states: 'ZA' } )).toThrow();
-    });
+  it('invalid state should throw', () => {
+    expect( () => getMatches( 'a1234567', { states: 'ZA' } )).toThrow();
+  });
 
-    it('states array should throw', () => {
-        expect( () => getMatches('a1234567', { states: [ 'TX', 'AL' ] } )).toThrow();
-    });
+  it('states array should throw', () => {
+    expect( () => getMatches('a1234567', { states: [ 'TX', 'AL' ] } )).toThrow();
+  });
 
   it('should return all CA matches', () => {
     const result = getMatches('A123456789', { country: 'CA' });
