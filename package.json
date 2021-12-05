@@ -45,8 +45,6 @@
     }
   },
   "devDependencies": {
-    "@justinlettau/renovate-config": "^0.1.2",
-    "@justinlettau/tslint-config": "^0.1.0",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
