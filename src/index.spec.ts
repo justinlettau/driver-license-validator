@@ -236,6 +236,10 @@ const state_fixture: StateTestFormat = {
       description: '9 numbers',
       sample: ['123456789'],
     },
+    {
+      description: '3 numbers followed by 1 letter followed by 6 numbers',
+      sample: ['123A456789']
+    },
   ],
   MT: [
     {

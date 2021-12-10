@@ -239,6 +239,10 @@ export const US_DL: CountryFormats = {
       regex: /^[0-9]{9}$/,
       description: '9 numbers',
     },
+    {
+      regex: /^[0-9]{3}[A-Z]{1}[0-9]{6}$/,
+      description: '3 numbers followed by 1 letter followed by 6 numbers',
+    },
   ],
   MT: [
     {
