@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/justinlettau/driver-license-validator/compare/v3.0.0...v3.1.0) (2021-12-13)
+
+
+### Features
+
+* add MO format ([#45](https://github.com/justinlettau/driver-license-validator/issues/45)) ([0d240c9](https://github.com/justinlettau/driver-license-validator/commit/0d240c90cadbad4b7ce82ca44e6c0fd401b86f9d)), closes [#44](https://github.com/justinlettau/driver-license-validator/issues/44)
+
 ## [3.0.0](https://github.com/justinlettau/driver-license-validator/compare/v2.0.2...v3.0.0) (2021-10-28)
 
 
