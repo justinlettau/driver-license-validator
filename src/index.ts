@@ -1,6 +1,6 @@
-import { CountryFormats, ValidateOptions, ValidationMatch } from './interfaces';
-import { CA_DL } from './regex/ca-dl';
-import { US_DL } from './regex/us-dl';
+import { CountryFormats, ValidateOptions, ValidationMatch } from './interfaces.js';
+import { CA_DL } from './regex/ca-dl.js';
+import { US_DL } from './regex/us-dl.js';
 
 /**
  * Check if a driver license number matches any format.

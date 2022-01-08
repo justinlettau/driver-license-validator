@@ -1,4 +1,4 @@
-import { CountryFormats } from '../interfaces';
+import { CountryFormats } from '../interfaces.js';
 
 /**
  * Canada driver license formats.
