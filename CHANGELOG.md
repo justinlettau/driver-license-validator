@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/justinlettau/driver-license-validator/compare/v3.1.0...v3.1.1) (2022-01-08)
+
+
+### Bug Fixes
+
+* esm import extensions ([d8e10b0](https://github.com/justinlettau/driver-license-validator/commit/d8e10b07980582b28e0e3f3695184e3402110704))
+
 ## [3.1.0](https://github.com/justinlettau/driver-license-validator/compare/v3.0.0...v3.1.0) (2021-12-13)
 
 

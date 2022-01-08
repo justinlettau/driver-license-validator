@@ -1,7 +1,7 @@
 {
   "name": "driver-license-validator",
   "description": "Validate driver license numbers.",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "keywords": [
     "driver-license",
     "drivers-license",
